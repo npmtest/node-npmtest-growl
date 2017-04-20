@@ -1,1 +1,40 @@
-{     "devDependencies": {         "growl": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-growl",     "homepage": "https://github.com/npmtest/node-npmtest-growl",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-growl.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### basic test coverage for  [growl (v1.9.2)](https://github.com/tj/node-growl)  [![npm package](https://img.shields.io/npm/v/npmtest-growl.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-growl) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-growl.svg)](https://travis-ci.org/npmtest/node-npmtest-growl)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "growl": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-growl",
+    "keywords": [
+        "coverage",
+        "test",
+        "growl"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_growl.js",
+    "name": "npmtest-growl",
+    "nameAlias": "npmtest_growl",
+    "nameOriginal": "npmtest-growl",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-growl.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
